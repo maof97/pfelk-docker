@@ -27,7 +27,7 @@ sudo wget https://github.com/pfelk/docker/archive/refs/heads/main.zip
 sudo apt-get install unzip
 ```
 ```
-sudo unzip pfelkdocker.zip
+sudo unzip main.zip
 ```
 ### (3) Memory 
 #### (3a) Set vm.max_map_count to no less than 262144 (must run each time host is booted)
