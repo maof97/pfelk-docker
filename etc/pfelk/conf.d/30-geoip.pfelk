@@ -1,6 +1,6 @@
-# 30-geoip.conf
+# 30-geoip.pfelk
 ################################################################################
-# Version: 22.03                                                               #
+# Version: 22.04                                                               #
 # Required: No - Optional                                                      #
 # Description: Enriches source.ip and destination.ip fields with GeoIP data    #
 # For MaxMind, remove all instances of "#MMR#" or leave for built-in GeoIP     #
@@ -19,19 +19,13 @@ filter {
         geoip {
           source => "[source][ip]"
 #MMR#          database => "/var/lib/GeoIP/GeoLite2-City.mmdb"
-          target => "[source]"
         }
         geoip {
+          source => "[source][ip]"
           default_database_type => 'ASN'
 #MMR#          database => "/var/lib/GeoIP/GeoLite2-ASN.mmdb"
-          source => "[source][ip]"
-          target => "[source]"
         }
         mutate {
-          rename => { "[source][as][asn]" => "[source][as][number]"}
-          rename => { "[source][as][as_org]" => "[source][as][organization][name]"}
-          rename => { "[source][geo][country_code2]" => "[source][geo][country_iso_code]"}
-          rename => { "[source][geo][region_code]" => "[source][geo][region_iso_code]"}
           add_tag => "GeoIP_Source"
         }
       }
@@ -47,19 +41,14 @@ filter {
         geoip {
           source => "[destination][ip]"
 #MMR#          database => "/var/lib/GeoIP/GeoLite2-City.mmdb"
-          target => "[destination]"
+#ECSv8#          target => "[destination]"
         }
         geoip {
+          source => "[destination][ip]"
           default_database_type => 'ASN'
 #MMR#          database => "/var/lib/GeoIP/GeoLite2-ASN.mmdb"
-          source => "[destination][ip]"
-          target => "[destination]"
         }
         mutate {
-          rename => { "[destination][as][asn]" => "[destination][as][number]"}
-          rename => { "[destination][as][as_org]" => "[destination][as][organization][name]"}
-          rename => { "[destination][geo][country_code2]" => "[destination][geo][country_iso_code]"}
-          rename => { "[destination][geo][region_code]" => "[destination][geo][region_iso_code]"}
           add_tag => "GeoIP_Destination"
         }
       }
@@ -78,19 +67,13 @@ filter {
         geoip {
           source => "[client][ip]"
 #MMR#          database => "/var/lib/GeoIP/GeoLite2-City.mmdb"
-          target => "[source]"
         }
         geoip {
+          source => "[client][ip]"
           default_database_type => 'ASN'
 #MMR#          database => "/var/lib/GeoIP/GeoLite2-ASN.mmdb"
-          source => "[client][ip]"
-          target => "[source]"
        }
         mutate {
-          rename => { "[source][as][asn]" => "[source][as][number]"}
-          rename => { "[source][as][as_org]" => "[source][as][organization][name]"}
-          rename => { "[source][geo][country_code2]" => "[source][geo][country_iso_code]"}
-          rename => { "[source][geo][region_code]" => "[source][geo][region_iso_code]"}
           add_tag => "GeoIP_Source"
         }
       }
