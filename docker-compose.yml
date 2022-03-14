@@ -5,7 +5,7 @@ services:
     networks:
       - elastic
     volumes:
-      - certs:/usr/share/elasticsearch/config/certs:z
+      - ./certs:/usr/share/elasticsearch/config/certs:z
     user: "0"
     command: >
       bash -c '
@@ -111,7 +111,7 @@ services:
       retries: 120
     volumes:
       - data01:/usr/share/elasticsearch/data
-      - certs:/usr/share/elasticsearch/config/certs:z
+      - ./certs:/usr/share/elasticsearch/config/certs:z
     ports:
       - 127.0.0.1:9200:9200
     networks:
@@ -159,7 +159,7 @@ services:
       retries: 120
     volumes:
       - data02:/usr/share/elasticsearch/data
-      - certs:/usr/share/elasticsearch/config/certs:z
+      - ./certs:/usr/share/elasticsearch/config/certs:z
     networks:
       - elastic
   es03:
@@ -205,7 +205,7 @@ services:
       retries: 120
     volumes:
       - data03:/usr/share/elasticsearch/data
-      - certs:/usr/share/elasticsearch/config/certs:z
+      - ./certs:/usr/share/elasticsearch/config/certs:z
     networks:
       - elastic
 
@@ -221,7 +221,7 @@ services:
       LS_JAVA_OPTS: -Xmx1G -Xms1G
     restart: unless-stopped
     volumes:
-      - certs:/certs:z
+      - ./certs:/certs:z
       - ./etc/logstash/config/:/usr/share/logstash/config:ro       
       - ./etc/pfelk/conf.d/:/etc/pfelk/conf.d:ro
       - ./etc/pfelk/patterns/:/etc/pfelk/patterns:ro
@@ -247,7 +247,7 @@ services:
       - ELASTICSEARCH_SSL_CERTIFICATEAUTHORITIES=config/certs/ca/ca.crt
     restart: unless-stopped
     volumes:
-      - certs:/usr/share/kibana/config/certs:z
+      - ./certs:/usr/share/kibana/config/certs:z
     ports:
       - 127.0.0.1:5601:5601
     networks:
@@ -268,8 +268,6 @@ volumes:
   data02:
     driver: local
   data03:
-    driver: local
-  certs:
     driver: local
 
 networks:
