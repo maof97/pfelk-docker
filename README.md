@@ -8,7 +8,7 @@ Deploy pfelk with docker-compose [Video Tutorial](https://www.youtube.com/watch?
 ### (0) Required Prerequisits 
 - [X] Docker 
 - [X] Docker-Compose
-- [X] Adequate Memory (i.e. 4GB+)
+- [X] Adequate Memory (i.e. 8GB+)
 
 #### (1) Docker Install
 ```
@@ -37,6 +37,19 @@ sudo sysctl -w vm.max_map_count=262144
 #### (3b) Set vm.max_map_count to no less than 262144 (one time configuration) 
 ```
 sudo echo "vm.max_map_count=262144" >> /etc/sysctl.conf
+```
+### (4) Configure Variables (Credentials) 
+#### (4a) Edit `.env` File
+```
+sudo nano .env
+```
+#### (4b) Amend `.env` File as Desired
+```
+ELK_VERSION=8.1.0
+ELASTIC_PASSWORD=ELASTIC-PASSWORD
+KIBANA_PASSWORD=KIBANA-PASSWORD
+LOGSTASH_PASSWORD=LOGSTASH-PASSWORD
+LICENSE=basic
 ```
 ### (4) Start Docker 
 ```
