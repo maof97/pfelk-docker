@@ -51,7 +51,7 @@ KIBANA_PASSWORD=KIBANA-PASSWORD
 LOGSTASH_PASSWORD=LOGSTASH-PASSWORD
 LICENSE=basic
 ```
-### (4) Start Docker 
+### (5) Start Docker 
 ```
 sudo docker-compose up
 ```
@@ -92,6 +92,6 @@ Scale out your deployment to 3 nodes by running the following command:
 sudo docker-compose up -d --scale pfelk=3
 ```
 
-### (4) Finalizing 
+### (6) Finalizing 
 
 Finalize templates and dashboards [here](https://github.com/pfelk/pfelk/blob/master/install/configuration.md)
