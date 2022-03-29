@@ -57,41 +57,6 @@ sudo docker-compose up
 ```
 Once fully running, navigate to the host ip (ex: 192.168.0.100:5601)
 
-### Scaling out pfelk
-Replace docker-compose.yml with this version of [docker-compose.yml](https://raw.githubusercontent.com/pfelk/docker/master/scale/docker-compose.yml)
-
-#### (0) Prerequisites
-
-Please visit the [following documentation](https://www.elastic.co/guide/en/elasticsearch/reference/current/docker.html) for additional details.
-
-**Randomize published ports**
-
-Use either `--publish-all` or enable random ports for hosts, for example:
-
-```
-  elasticsearch:
-    ports:
-      - '9200'
-```
-
-**Enable the data path to be shared by multiple nodes**
-
-For example, if you want to scale out to 3 nodes, use the following value:
-
-```
-  elasticsearch:
-    environment:
-      node.max_local_storage_nodes: '3'
-```
-
-#### (1) Scale out pfelk
-
-Scale out your deployment to 3 nodes by running the following command:
-
-```
-sudo docker-compose up -d --scale pfelk=3
-```
-
 ### (6) Finalizing 
 
 Finalize templates and dashboards [here](https://github.com/pfelk/pfelk/blob/master/install/configuration.md)
