@@ -15,6 +15,9 @@ services:
         elif [ x${KIBANA_PASSWORD} == x ]; then
           echo "Set the KIBANA_PASSWORD environment variable in the .env file";
           exit 1;
+        elif [ x${LOGSTASH_PASSWORD} == x ]; then
+          echo "Set the LOGSTASH_PASSWORD environment variable in the .env file";
+          exit 1;
         fi;
         if [ ! -f /usr/share/elasticsearch/config/certs/ca.zip ]; then
           echo "Creating CA";
