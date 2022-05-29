@@ -51,6 +51,14 @@ KIBANA_PASSWORD=KIBANA-PASSWORD
 LOGSTASH_PASSWORD=LOGSTASH-PASSWORD
 LICENSE=basic
 ```
+#### (4c) Update `LOGSTASH_PASSWORD` in configuration files
+```
+sed -i 's/logstash_system_password/LOGSTASH-PASSWORD/' etc/pfelk/conf.d/50-outputs.pfelk etc/logstash/config/logstash.yml
+```
+or use the Script
+```
+./set-logstash-password.sh
+```
 ### (5) Start Docker 
 ```
 sudo docker-compose up
