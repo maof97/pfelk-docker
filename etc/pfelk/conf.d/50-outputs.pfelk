@@ -55,7 +55,7 @@ output {
     hosts => ["https://es01:9200"]
     # ssl => true
     cacert => '/certs/ca/ca.crt'
-    user => "pfelk_logstash"
-    password => "pf31k-l0g$tas#-p@sSw0Rd"
+    user => "elastic"
+    password => "elastic_password"
   }
 }
