@@ -3,7 +3,6 @@ Deploy pfelk with docker-compose [Video Tutorial](https://www.youtube.com/watch?
 
 ![Version badge](https://img.shields.io/badge/ELK-8.2.2-blue.svg)
 [![Build Status](https://travis-ci.org/pfelk/docker.svg?branch=master)](https://travis-ci.org/pfelk/docker-pfelk)
-[![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.me/a3ilson) 
 
 ### (0) Required Prerequisits 
 - [X] Docker 
