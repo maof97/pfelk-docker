@@ -70,6 +70,10 @@ sudo docker-compose up
 ```
 Once fully running, navigate to the host ip (ex: 192.168.0.100:5601)
 
-### (6) Finalizing 
+### (5) Configure Security 
+* Configure Security [here](https://github.com/pfelk/pfelk/blob/main/install/security.md)
 
-Finalize templates and dashboards [here](https://github.com/pfelk/pfelk/blob/master/install/configuration.md)
+### (6) Finish Configuring
+* Finish Configuring [here](https://github.com/pfelk/pfelk/blob/main/install/configuration.md)
+
+### (7) Finished 
