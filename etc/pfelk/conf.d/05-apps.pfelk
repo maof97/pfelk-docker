@@ -1,6 +1,6 @@
 # 05-apps.pfelk
 ################################################################################
-# Version: 22.04                                                               #
+# Version: 22.12                                                               #
 # Required: Yes                                                                #
 # Description: Parses events based on process.name and further enriches events #
 #                                                                              #
@@ -146,7 +146,7 @@ filter {
     }
     grok {
       patterns_dir => [ "/etc/pfelk/patterns" ]
-      match => { "filter_message" => [ "%{PF_APP}", "%{PF_APP_DATA}" ] }
+      match => { "filter_message" => "%{PF_APP} %{PF_APP_DATA}" }
     }
     mutate {
       lowercase => [ "[pf][app][action]" ]
@@ -193,6 +193,7 @@ filter {
     if [suricata][eve][dest_port] and ![destination][port] {
       mutate {
         add_field => { "[destination][port]" => "%{[suricata][eve][dest_port]}" }
+        add_field => { "[threatintel][indicator][ip]" => "%{[source][ip]} %{[suricata][eve][http][url]}" }
       }
     }
     if "suricata_json" not in [tags] {
@@ -261,6 +262,10 @@ filter {
         match => [ "[dns][question][name]", "(?<[dns][question][registered_domain]>[^.]+\.[^.]+)$" ] 
       }
     }
+    grok {
+      match => [ "[dns][question][name]", "(\.)?(?<[dns][question][tld]>[^.]+)$" ]
+    }
+
     mutate {
       remove_tag => "unbound-registered_domain"
     }
