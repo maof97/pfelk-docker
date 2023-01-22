@@ -56,6 +56,6 @@ output {
     # ssl => true
     cacert => '/usr/share/logstash/config/certs/ca/ca.crt'
     user => "elastic"
-    password => "elastic_password"
+    password => "changeme"
   }
 }
