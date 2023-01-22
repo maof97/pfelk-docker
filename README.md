@@ -70,10 +70,10 @@ sudo docker-compose up
 ```
 Once fully running, navigate to the host ip (ex: 192.168.0.100:5601)
 
-### (5) Install Templates 
+### (6) Install Templates 
 * Templates [here](https://github.com/pfelk/pfelk/blob/main/install/templates.md)
 
-### (6) Finish Configuring
+### (7) Finish Configuring
 * Finish Configuring [here](https://github.com/pfelk/pfelk/blob/main/install/configuration.md)
 
-### (7) Finished 
+### (8) Finished 
