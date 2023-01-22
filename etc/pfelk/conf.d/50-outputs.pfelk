@@ -1,6 +1,6 @@
 # 50-outputs.pfelk
 ################################################################################
-# Version: 22.04(datastream)                                                   #
+# Version: 23.01(datastream)                                                   #
 # Required: Yes                                                                #
 # Description: Sends enriched logs to Elasticsearch.                           #
 #                                                                              #
@@ -54,7 +54,7 @@ output {
     ### X-Pack Security Method ###
     hosts => ["https://es01:9200"]
     # ssl => true
-    cacert => '/certs/ca/ca.crt'
+    cacert => '/usr/share/logstash/config/certs/ca/ca.crt'
     user => "elastic"
     password => "elastic_password"
   }
