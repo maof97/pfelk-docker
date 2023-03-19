@@ -27,7 +27,7 @@ input {
 filter {
   grok {
     patterns_dir => [ "/etc/pfelk/patterns" ]
-    match => [ "pfelk", "%{SYSLOG}" ]
+    match => [ "pfelk", "%{PFELK}" ]
   }
 #### RFC 5424 Date/Time Format ####
   date {
