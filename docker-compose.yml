@@ -30,6 +30,12 @@ services:
           "  - name: es01\n"\
           "    dns:\n"\
           "      - es01\n"\
+          "      - pfelk.pve.lan\n"\
+          "    ip:\n"\
+          "      - 127.0.0.1\n"\
+          "  - name: kibana\n"\
+          "    dns:\n"\
+          "      - pfelk.pve.lan\n"\
           "      - localhost\n"\
           "    ip:\n"\
           "      - 127.0.0.1\n"\
@@ -110,6 +116,10 @@ services:
       - ELASTICSEARCH_PASSWORD=${KIBANA_PASSWORD}
       - ELASTICSEARCH_SSL_CERTIFICATEAUTHORITIES=config/certs/ca/ca.crt
       - xpack.encryptedSavedObjects.encryptionKey=${KIBANA_ENCRYPTION_KEY}
+      - server.ssl.key=certs/kibana/kibana.key
+      - server.ssl.certificate=certs/kibana/kibana.crt
+      - server.ssl.enabled=true
+      - server.publicBaseUrl=https://pfelk.pve.lan:5601
     mem_limit: ${MEM_LIMIT}
     healthcheck:
       test:
