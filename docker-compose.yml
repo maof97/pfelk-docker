@@ -117,8 +117,8 @@ services:
       - ELASTICSEARCH_PASSWORD=${KIBANA_PASSWORD}
       - ELASTICSEARCH_SSL_CERTIFICATEAUTHORITIES=config/certs/ca/ca.crt
       - XPACK_ENCRYPTEDSAVEDOBJECTS_ENCRYPTIONKEY=${KIBANA_ENCRYPTION_KEY}
-      - SERVER_SSL_KEY=certs/kibana/kibana.key
-      - SERVER_SSL_CERTIFICATE=certs/kibana/kibana.crt
+      - SERVER_SSL_KEY=config/certs/kibana/kibana.key
+      - SERVER_SSL_CERTIFICATE=config/certs/kibana/kibana.crt
       - SERVER_SSL_ENABLED=true
       - SERVER_PUBLICBASEURL=https://pfelk.pve.lan:5601
     mem_limit: ${MEM_LIMIT}
