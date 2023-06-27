@@ -172,21 +172,21 @@ services:
     environment:
       - FLEET_SERVER_ENABLE=true
       - FLEET_SERVER_ELASTICSEARCH_HOST=https://pfelk.pve.lan:9200
-      - FLEET_SERVER_ELASTICSEARCH_CA=/usr/share/fleet/config/certs/ca/ca.crt
+      - FLEET_SERVER_ELASTICSEARCH_CA=/usr/share/fleet/config/ca/ca.crt
       - FLEET_SERVER_SERVICE_TOKEN=${FLEET_SERVER_SERVICE_TOKEN}
       - FLEET_SERVER_POLICY=${FLEET_SERVER_POLICY}
-      - FLEET_SERVER_CERT=/usr/share/fleet/config/certs/kibana/kibana.crt
-      - FLEET_SERVER_CERT_KEY=/usr/share/fleet/config/certs/kibana/kibana.key
+      - FLEET_SERVER_CERT=/usr/share/fleet/config/kibana/kibana.crt
+      - FLEET_SERVER_CERT_KEY=/usr/share/fleet/config/kibana/kibana.key
       - FLEET_URL=https://pfelk.pve.lan:8220
-      - FLEET_CA=/usr/share/fleet/config/certs/ca/ca.crt
+      - FLEET_CA=/usr/share/fleet/config/ca/ca.crt
       - ELASTICSEARCH_HOST=https://pfelk.pve.lan:9200
       - ELASTICSEARCH_USERNAME=elastic
       - ELASTICSEARCH_PASSWORD=${ELASTIC_PASSWORD}
-      - ELASTICSEARCH_CA=/usr/share/fleet/config/certs/ca/ca.crt
+      - ELASTICSEARCH_CA=/usr/share/fleet/config/ca/ca.crt
       - KIBANA_HOST=https://pfelk.pve.lan:5601
       - KIBANA_USERNAME=elastic
       - KIBANA_PASSWORD=${ELASTIC_PASSWORD}
-      - KIBANA_CA=/usr/share/fleet/config/certs/ca/ca.crt
+      - KIBANA_CA=/usr/share/fleet/config/ca/ca.crt
     healthcheck:
       test:
         [
