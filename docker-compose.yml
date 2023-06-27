@@ -176,6 +176,8 @@ services:
       - FLEET_SERVER_SERVICE_TOKEN=${FLEET_SERVER_SERVICE_TOKEN}
       - FLEET_SERVER_CERT=/usr/share/fleet/config/certs/fleet/fleet.crt
       - FLEET_SERVER_CERT_KEY=/usr/share/fleet/config/certs/fleet/fleet.key
+      - FLEET_URL=https://pfelk.pve.lan:8220
+      - FLEET_CA=/usr/share/fleet/config/certs/ca/ca.crt
 
 volumes:
   certs:
