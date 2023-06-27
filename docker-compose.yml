@@ -189,6 +189,8 @@ services:
       - KIBANA_USERNAME=elastic
       - KIBANA_PASSWORD=${ELASTIC_PASSWORD}
       - KIBANA_CA=/usr/share/fleet/config/ca/ca.crt
+      - FLEET_SERVER_ES_CA=/usr/share/fleet/config/ca/ca.crt
+      - CERTIFICATE_AUTHORITIES=/usr/share/fleet/config/ca/ca.crt
     healthcheck:
       test:
         [
