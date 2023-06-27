@@ -174,6 +174,7 @@ services:
       - FLEET_SERVER_ELASTICSEARCH_HOST=https://es01:9200
       - FLEET_SERVER_ELASTICSEARCH_CA=/usr/share/fleet/config/certs/ca/ca.crt
       - FLEET_SERVER_SERVICE_TOKEN=${FLEET_SERVER_SERVICE_TOKEN}
+      - FLEET_SERVER_POLICY=${FLEET_SERVER_POLICY}
       - FLEET_SERVER_CERT=/usr/share/fleet/config/certs/kibana/kibana.crt
       - FLEET_SERVER_CERT_KEY=/usr/share/fleet/config/certs/kibana/kibana.key
       - FLEET_URL=https://pfelk.pve.lan:8220
