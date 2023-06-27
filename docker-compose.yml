@@ -171,7 +171,7 @@ services:
     user: root # note, synthetic browser monitors require this set to `elastic-agent`
     environment:
       - FLEET_SERVER_ENABLE=true
-      - FLEET_SERVER_ELASTICSEARCH_HOST=https://es01:9200
+      - FLEET_SERVER_ELASTICSEARCH_HOST=https://pfelk.pve.lan:9200
       - FLEET_SERVER_ELASTICSEARCH_CA=/usr/share/fleet/config/certs/ca/ca.crt
       - FLEET_SERVER_SERVICE_TOKEN=${FLEET_SERVER_SERVICE_TOKEN}
       - FLEET_SERVER_POLICY=${FLEET_SERVER_POLICY}
@@ -179,7 +179,7 @@ services:
       - FLEET_SERVER_CERT_KEY=/usr/share/fleet/config/certs/kibana/kibana.key
       - FLEET_URL=https://pfelk.pve.lan:8220
       - FLEET_CA=/usr/share/fleet/config/certs/ca/ca.crt
-      - ELASTICSEARCH_HOST=https://es01:9200
+      - ELASTICSEARCH_HOST=https://pfelk.pve.lan:9200
       - ELASTICSEARCH_USERNAME=elastic
       - ELASTICSEARCH_PASSWORD=${ELASTIC_PASSWORD}
       - ELASTICSEARCH_CA=/usr/share/fleet/config/certs/ca/ca.crt
