@@ -169,7 +169,7 @@ services:
     container_name: fleet-server
     restart: unless-stopped
     user: root # note, synthetic browser monitors require this set to `elastic-agent`
-    hostname: feet-server
+    hostname: fleet-server
     environment:
       - FLEET_SERVER_ENABLE=true
       - FLEET_SERVER_ELASTICSEARCH_HOST=https://pfelk.pve.lan:9200
