@@ -198,7 +198,26 @@ services:
       interval: 10s
       timeout: 10s
       retries: 120
-
+      
+  threat-intel-agent:
+    depends_on:
+      fleet-server:
+        condition: service_healthy
+    image: docker.elastic.co/beats/elastic-agent:${STACK_VERSION} 
+    volumes:
+      - certs:/usr/share/agent/config
+    ports:
+      - ${FLEET_PORT}:8220
+    container_name: threat-intel-agent
+    restart: unless-stopped
+    user: root # note, synthetic browser monitors require this set to `elastic-agent`
+    hostname: threat-intel-agent
+    environment:
+      - FLEET_ENROLLMENT_TOKEN=${FLEET_ENROLLMENT_TOKEN}
+      - FLEET_ENROLL=1
+      - FLEET_URL=https://pfelk.pve.lan:8220
+      - ELASTICSEARCH_CA=/usr/share/agent/config/ca/ca.crt
+      - FLEET_CA=/usr/share/agent/config/ca/ca.crt
 volumes:
   certs:
     driver: local
