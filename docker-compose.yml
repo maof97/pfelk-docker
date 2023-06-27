@@ -178,6 +178,15 @@ services:
       - FLEET_SERVER_CERT_KEY=/usr/share/fleet/config/certs/fleet/fleet.key
       - FLEET_URL=https://pfelk.pve.lan:8220
       - FLEET_CA=/usr/share/fleet/config/certs/ca/ca.crt
+      healthcheck:
+        test:
+          [
+            "CMD-SHELL",
+            "curl -I --cacert /usr/share/fleet/config/certs/ca/ca.crt https://localhost:8220/api/status | grep -q 'HEALTHY'",
+          ]
+        interval: 10s
+        timeout: 10s
+        retries: 120
 
 volumes:
   certs:
