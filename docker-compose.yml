@@ -191,7 +191,7 @@ services:
       test:
         [
           "CMD-SHELL",
-          "curl -I --cacert /usr/share/fleet/config/ca/ca.crt https://localhost:8220/api/status | grep -q 'HEALTHY'",
+          "curl --cacert /usr/share/fleet/config/ca/ca.crt https://localhost:8220/api/status | grep -q 'HEALTHY'",
         ]
       interval: 10s
       timeout: 10s
