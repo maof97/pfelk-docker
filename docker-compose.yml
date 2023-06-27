@@ -163,7 +163,7 @@ services:
         condition: service_healthy
     image: docker.elastic.co/beats/elastic-agent:${STACK_VERSION} 
     volumes:
-      - certs:/usr/share/fleet/config/certs
+      - certs:/usr/share/fleet/config
     ports:
       - ${FLEET_PORT}:8220
     container_name: fleet-server
